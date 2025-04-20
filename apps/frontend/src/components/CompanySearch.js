@@ -8,11 +8,21 @@ import {
   TextField,
   Autocomplete,
   Chip,
-  Box
+  Box,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  CircularProgress
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const CompanySearch = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [previewResults, setPreviewResults] = useState([]);
   const [companyFilters, setCompanyFilters] = useState({
     industries: [],
     excludedIndustries: [],
@@ -39,8 +49,95 @@ const CompanySearch = () => {
     }));
   };
 
-  const handlePreviewCompanies = () => {
-    console.log('Preview companies with filters:', companyFilters);
+  const handlePreviewCompanies = async () => {
+    setIsLoading(true);
+    try {
+      // TODO: Replace with actual API call
+      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
+      // Sample data - replace with actual API response
+      setPreviewResults([
+        {
+          name: 'Example Corp',
+          description: 'A technology company focused on AI solutions',
+          primaryIndustry: 'Software Development',
+          size: '51-200',
+          type: 'Privately Held',
+          location: 'San Francisco, CA',
+          country: 'United States',
+          linkedinUrl: 'https://linkedin.com/company/example-corp'
+        },
+        // Add more sample data as needed
+      ]);
+    } catch (error) {
+      console.error('Error fetching preview:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const RightColumnContent = () => {
+    if (isLoading) {
+      return (
+        <div className="loading-container" style={{ textAlign: 'center', padding: '2rem' }}>
+          <CircularProgress />
+          <Typography variant="h6" sx={{ mt: 2 }}>
+            Generating your preview. This may take a few moments...
+          </Typography>
+        </div>
+      );
+    }
+
+    if (previewResults.length > 0) {
+      return (
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} aria-label="preview results">
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Description</TableCell>
+                <TableCell>Primary Industry</TableCell>
+                <TableCell>Size</TableCell>
+                <TableCell>Type</TableCell>
+                <TableCell>Location</TableCell>
+                <TableCell>Country</TableCell>
+                <TableCell>LinkedIn URL</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {previewResults.map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell>{index + 1}</TableCell>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.description}</TableCell>
+                  <TableCell>{row.primaryIndustry}</TableCell>
+                  <TableCell>{row.size}</TableCell>
+                  <TableCell>{row.type}</TableCell>
+                  <TableCell>{row.location}</TableCell>
+                  <TableCell>{row.country}</TableCell>
+                  <TableCell>
+                    <a href={row.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                      {row.linkedinUrl}
+                    </a>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      );
+    }
+
+    return (
+      <div className="instructions-panel">
+        <h2>Create a list of companies</h2>
+        <ol>
+          <li>Construct your search! Start with company size or location</li>
+          <li>Preview company profiles that match your search</li>
+          <li>Once satisfied, import full list into a Clay table!</li>
+        </ol>
+      </div>
+    );
   };
 
   return (
@@ -201,7 +298,7 @@ const CompanySearch = () => {
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more countries</Typography>
                 <Autocomplete
                   multiple
-                  options={[]} // You can add country options here
+                  options={["United States"]} // You can add country options here
                   value={companyFilters.countries}
                   onChange={(_, newValue) => handleFilterChange('countries', newValue)}
                   renderInput={(params) => (
@@ -223,7 +320,7 @@ const CompanySearch = () => {
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Include city or state</Typography>
                 <Autocomplete
                   multiple
-                  options={[]} // You can add city/state options here
+                  options={["New York", "San Francisco", "Seattle"]} // You can add city/state options here
                   value={companyFilters.includeCityState}
                   onChange={(_, newValue) => handleFilterChange('includeCityState', newValue)}
                   renderInput={(params) => (
@@ -298,14 +395,7 @@ const CompanySearch = () => {
       </div>
 
       <div className="right-column">
-        <div className="instructions-panel">
-          <h2>Create a list of companies</h2>
-          <ol>
-            <li>Construct your search! Start with company size or location</li>
-            <li>Preview company profiles that match your search</li>
-            <li>Once satisfied, import full list into a Clay table!</li>
-          </ol>
-        </div>
+        <RightColumnContent />
       </div>
     </div>
   );

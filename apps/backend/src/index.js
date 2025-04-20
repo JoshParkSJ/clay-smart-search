@@ -13,6 +13,12 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+app.post('/api/search', (req, res) => {
+  const result = {};
+
+  res.json(result);
+});
+
 app.listen(port, () => {
   console.log(`Backend server running on port ${port}`);
-}); 
+});
