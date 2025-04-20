@@ -98,6 +98,12 @@ app.post('/api/search', (req: Request, res: Response) => {
   res.json(result);
 });
 
-app.listen(port, () => {
-  console.log(`Backend server running on port ${port}`);
-});
+// Only start the server if we're not in a Vercel environment
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(port, () => {
+    console.log(`Backend server running on port ${port}`);
+  });
+}
+
+// Export the Express app for Vercel
+export default app;
