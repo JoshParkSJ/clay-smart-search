@@ -19,18 +19,19 @@ import {
   CircularProgress
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Company, CompanyFilters } from "@clay-smart-search/shared";
+import { searchCompanies } from "../utils/search";
 
 const CompanySearch = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [previewResults, setPreviewResults] = useState([]);
-  const [companyFilters, setCompanyFilters] = useState({
+  const [previewResults, setPreviewResults] = useState<Company[]>([]);
+  const [companyFilters, setCompanyFilters] = useState<CompanyFilters>({
     industries: [],
     excludedIndustries: [],
     companySizes: [],
     companyTypes: [],
-    includeKeywords: '',
-    excludeKeywords: '',
-    minFollowers: '',
+    includeKeywords: [],
+    excludeKeywords: [],
     countries: [],
     includeCityState: [],
     excludeCityState: [],
@@ -41,8 +42,11 @@ const CompanySearch = () => {
   const industryOptions = ['Software Development', 'Healthcare', 'Finance', 'Retail'];
   const companySizeOptions = ['1-10', '11-50', '51-200', '201-500', '501+'];
   const companyTypeOptions = ['Privately Held', 'Public', 'Non-profit', 'Government'];
+  const companyCountryOptions = ["United States"];
+  const companyCityOptions = ["New York", "San Francisco", "Seattle"];
+  const companyCityExcludeOptions = ["New York", "San Francisco", "Seattle"];
 
-  const handleFilterChange = (field, value) => {
+  const handleFilterChange = (field: keyof CompanyFilters, value: string | string[]) => {
     setCompanyFilters(prev => ({
       ...prev,
       [field]: value
@@ -52,22 +56,9 @@ const CompanySearch = () => {
   const handlePreviewCompanies = async () => {
     setIsLoading(true);
     try {
-      // TODO: Replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 2000)); // Simulated delay
-      // Sample data - replace with actual API response
-      setPreviewResults([
-        {
-          name: 'Example Corp',
-          description: 'A technology company focused on AI solutions',
-          primaryIndustry: 'Software Development',
-          size: '51-200',
-          type: 'Privately Held',
-          location: 'San Francisco, CA',
-          country: 'United States',
-          linkedinUrl: 'https://linkedin.com/company/example-corp'
-        },
-        // Add more sample data as needed
-      ]);
+      const result = await searchCompanies(companyFilters)
+
+      setPreviewResults(result);
     } catch (error) {
       console.error('Error fetching preview:', error);
     } finally {
@@ -116,8 +107,8 @@ const CompanySearch = () => {
                   <TableCell>{row.location}</TableCell>
                   <TableCell>{row.country}</TableCell>
                   <TableCell>
-                    <a href={row.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                      {row.linkedinUrl}
+                    <a href={row.url} target="_blank" rel="noopener noreferrer">
+                      {row.url}
                     </a>
                   </TableCell>
                 </TableRow>
@@ -246,37 +237,51 @@ const CompanySearch = () => {
 
               <div>
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Include description keywords</Typography>
-                <TextField
-                  fullWidth
-                  placeholder="e.g. sales, data, outbound"
+                <Autocomplete
+                  multiple
+                  freeSolo
+                  options={[]}
                   value={companyFilters.includeKeywords}
-                  onChange={(e) => handleFilterChange('includeKeywords', e.target.value)}
-                  size="small"
+                  onChange={(_, newValue) => handleFilterChange('includeKeywords', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. sales, data, outbound"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
                 />
               </div>
 
               <div>
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Exclude description keywords</Typography>
-                <TextField
-                  fullWidth
-                  placeholder="e.g. agency, marketing"
+                <Autocomplete
+                  multiple
+                  freeSolo
+                  options={[]}
                   value={companyFilters.excludeKeywords}
-                  onChange={(e) => handleFilterChange('excludeKeywords', e.target.value)}
-                  size="small"
+                  onChange={(_, newValue) => handleFilterChange('excludeKeywords', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. agency, marketing"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
                 />
+
               </div>
 
-              <div>
-                <Typography variant="body2" sx={{ mb: 0.5 }}>Minimum follower count</Typography>
-                <TextField
-                  fullWidth
-                  placeholder="e.g. 10"
-                  type="number"
-                  value={companyFilters.minFollowers}
-                  onChange={(e) => handleFilterChange('minFollowers', e.target.value)}
-                  size="small"
-                />
-              </div>
             </Box>
           </AccordionDetails>
         </Accordion>
@@ -298,7 +303,7 @@ const CompanySearch = () => {
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more countries</Typography>
                 <Autocomplete
                   multiple
-                  options={["United States"]} // You can add country options here
+                  options={companyCountryOptions}
                   value={companyFilters.countries}
                   onChange={(_, newValue) => handleFilterChange('countries', newValue)}
                   renderInput={(params) => (
@@ -320,7 +325,7 @@ const CompanySearch = () => {
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Include city or state</Typography>
                 <Autocomplete
                   multiple
-                  options={["New York", "San Francisco", "Seattle"]} // You can add city/state options here
+                  options={companyCityOptions}
                   value={companyFilters.includeCityState}
                   onChange={(_, newValue) => handleFilterChange('includeCityState', newValue)}
                   renderInput={(params) => (
@@ -342,7 +347,7 @@ const CompanySearch = () => {
                 <Typography variant="body2" sx={{ mb: 0.5 }}>Exclude city or state</Typography>
                 <Autocomplete
                   multiple
-                  options={[]} // You can add city/state options here
+                  options={companyCityExcludeOptions}
                   value={companyFilters.excludeCityState}
                   onChange={(_, newValue) => handleFilterChange('excludeCityState', newValue)}
                   renderInput={(params) => (
@@ -382,7 +387,7 @@ const CompanySearch = () => {
                 placeholder="e.g. AI ambient scribes in healthcare"
                 type="string"
                 value={companyFilters.smartSearchQuery}
-                onChange={(e) => handleFilterChange('smartSearchQuery', e.target.value)}
+                onChange={(e) => handleFilterChange('smartSearchQuery', e.target.value as string)}
                 size="small"
               />
             </div>

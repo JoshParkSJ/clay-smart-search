@@ -2,7 +2,8 @@
   "name": "clay-smart-search",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "shared"
   ],
   "scripts": {
     "frontend": "npm run start --workspace=apps/frontend",
