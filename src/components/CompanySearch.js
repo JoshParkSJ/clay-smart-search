@@ -4,20 +4,43 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Typography
+  Typography,
+  TextField,
+  Autocomplete,
+  Chip,
+  Box
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const CompanySearch = () => {
-  const [searchParams, setSearchParams] = useState({
-    company: '',
-    location: '',
-    limitResults: ''
+  const [companyFilters, setCompanyFilters] = useState({
+    industries: [],
+    excludedIndustries: [],
+    companySizes: [],
+    companyTypes: [],
+    includeKeywords: '',
+    excludeKeywords: '',
+    minFollowers: '',
+    countries: [],
+    includeCityState: [],
+    excludeCityState: [],
+    smartSearchQuery: '',
   });
 
+  // Sample data for dropdowns - you can replace these with your actual data
+  const industryOptions = ['Software Development', 'Healthcare', 'Finance', 'Retail'];
+  const companySizeOptions = ['1-10', '11-50', '51-200', '201-500', '501+'];
+  const companyTypeOptions = ['Privately Held', 'Public', 'Non-profit', 'Government'];
+
+  const handleFilterChange = (field, value) => {
+    setCompanyFilters(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   const handlePreviewCompanies = () => {
-    // Handle preview logic here
-    console.log('Preview companies with params:', searchParams);
+    console.log('Preview companies with filters:', companyFilters);
   };
 
   return (
@@ -35,9 +58,129 @@ const CompanySearch = () => {
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Company filter content goes here
-            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more industries</Typography>
+                <Autocomplete
+                  multiple
+                  options={industryOptions}
+                  value={companyFilters.industries}
+                  onChange={(_, newValue) => handleFilterChange('industries', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. Software Development"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Exclude one or more industries</Typography>
+                <Autocomplete
+                  multiple
+                  options={industryOptions}
+                  value={companyFilters.excludedIndustries}
+                  onChange={(_, newValue) => handleFilterChange('excludedIndustries', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. Advertising Services"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more company sizes</Typography>
+                <Autocomplete
+                  multiple
+                  options={companySizeOptions}
+                  value={companyFilters.companySizes}
+                  onChange={(_, newValue) => handleFilterChange('companySizes', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. 11-50 employees"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more company types</Typography>
+                <Autocomplete
+                  multiple
+                  options={companyTypeOptions}
+                  value={companyFilters.companyTypes}
+                  onChange={(_, newValue) => handleFilterChange('companyTypes', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. Privately Held"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Include description keywords</Typography>
+                <TextField
+                  fullWidth
+                  placeholder="e.g. sales, data, outbound"
+                  value={companyFilters.includeKeywords}
+                  onChange={(e) => handleFilterChange('includeKeywords', e.target.value)}
+                  size="small"
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Exclude description keywords</Typography>
+                <TextField
+                  fullWidth
+                  placeholder="e.g. agency, marketing"
+                  value={companyFilters.excludeKeywords}
+                  onChange={(e) => handleFilterChange('excludeKeywords', e.target.value)}
+                  size="small"
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Minimum follower count</Typography>
+                <TextField
+                  fullWidth
+                  placeholder="e.g. 10"
+                  type="number"
+                  value={companyFilters.minFollowers}
+                  onChange={(e) => handleFilterChange('minFollowers', e.target.value)}
+                  size="small"
+                />
+              </div>
+            </Box>
           </AccordionDetails>
         </Accordion>
 
@@ -53,9 +196,73 @@ const CompanySearch = () => {
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Location filter content goes here
-            </Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5 }}>
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more countries</Typography>
+                <Autocomplete
+                  multiple
+                  options={[]} // You can add country options here
+                  value={companyFilters.countries}
+                  onChange={(_, newValue) => handleFilterChange('countries', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. United States"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Include city or state</Typography>
+                <Autocomplete
+                  multiple
+                  options={[]} // You can add city/state options here
+                  value={companyFilters.includeCityState}
+                  onChange={(_, newValue) => handleFilterChange('includeCityState', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. New York"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+
+              <div>
+                <Typography variant="body2" sx={{ mb: 0.5 }}>Exclude city or state</Typography>
+                <Autocomplete
+                  multiple
+                  options={[]} // You can add city/state options here
+                  value={companyFilters.excludeCityState}
+                  onChange={(_, newValue) => handleFilterChange('excludeCityState', newValue)}
+                  renderInput={(params) => (
+                    <TextField
+                      {...params}
+                      placeholder="e.g. San Francisco"
+                      size="small"
+                    />
+                  )}
+                  renderTags={(value, getTagProps) =>
+                    value.map((option, index) => (
+                      <Chip label={option} {...getTagProps({ index })} />
+                    ))
+                  }
+                />
+              </div>
+            </Box>
           </AccordionDetails>
         </Accordion>
 
@@ -67,30 +274,21 @@ const CompanySearch = () => {
           >
             <div className="accordion-header">
               <span className="filter-icon">📊</span>
-              <Typography>Limit Results</Typography>
+              <Typography>Smart Search</Typography>
             </div>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Limit results filter content goes here
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="limit-results-content"
-            id="limit-results-header"
-          >
-            <div className="accordion-header">
-              <span className="filter-icon">📊</span>
-              <Typography>Limit Results</Typography>
+            <div>
+              <Typography variant="body2" sx={{ mb: 0.5 }}>Semantic query</Typography>
+              <TextField
+                fullWidth
+                placeholder="e.g. AI ambient scribes in healthcare"
+                type="string"
+                value={companyFilters.smartSearchQuery}
+                onChange={(e) => handleFilterChange('smartSearchQuery', e.target.value)}
+                size="small"
+              />
             </div>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Limit results filter content goes here
-            </Typography>
           </AccordionDetails>
         </Accordion>
 
@@ -113,4 +311,4 @@ const CompanySearch = () => {
   );
 };
 
-export default CompanySearch; 
+export default CompanySearch;

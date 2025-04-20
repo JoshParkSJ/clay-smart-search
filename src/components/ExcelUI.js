@@ -28,7 +28,7 @@ const ExcelUI = () => {
       <div className="sidebar">
         <div className="section">
           <div className="section-title"><strong>Add a source</strong></div>
-          <button className="source-button">
+          <button className="source-button" onClick={() => setIsModalOpen(true)}>
             <span className="icon">
                 <img src={companiesImage} alt="Find companies" style={{ height: '24px', width: 'auto' }} />
             </span>
