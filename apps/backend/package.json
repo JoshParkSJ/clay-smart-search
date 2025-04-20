@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon",
     "start": "node dist/index.js",
-    "build": "tsc",
+    "build": "cd ../../shared && pnpm build && cd ../apps/backend && tsc",
     "watch-ts": "tsc -w"
   },
   "dependencies": {

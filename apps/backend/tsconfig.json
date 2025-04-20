@@ -12,8 +12,9 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "composite": true,
+    "baseUrl": ".",
     "paths": {
-      "@clay-smart-search/shared": ["../../shared"]
+      "@clay-smart-search/shared": ["../../shared/dist"]
     }
   },
   "include": ["src/**/*"],
