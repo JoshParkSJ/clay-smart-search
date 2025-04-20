@@ -12,5 +12,7 @@
       "dest": "dist/index.js"
     }
   ],
-  "outputDirectory": "dist"
-} 
+  "outputDirectory": "dist",
+  "buildCommand": "pnpm install && pnpm build",
+  "installCommand": "npm i -g pnpm && pnpm install"
+}
