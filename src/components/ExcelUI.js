@@ -3,6 +3,7 @@ import '../App.css';
 import clayLogo from '../assets/clay-logo.png';
 import emptyStateImage from '../assets/empty.png';
 import companiesImage from '../assets/companies.png';
+import CompanySearch from './CompanySearch';
 
 const ExcelUI = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,45 +28,13 @@ const ExcelUI = () => {
       <div className="sidebar">
         <div className="section">
           <div className="section-title"><strong>Add a source</strong></div>
-          {/* <button className="source-button">
-            <span className="icon">👤</span>
-            Find people
-          </button> */}
           <button className="source-button">
             <span className="icon">
                 <img src={companiesImage} alt="Find companies" style={{ height: '24px', width: 'auto' }} />
             </span>
-            Find companies
+            <strong>Find companies</strong>
           </button>
-          {/* <button className="source-button">
-            <span className="icon">💼</span>
-            Find jobs
-          </button>
-          <button className="source-button">
-            <span className="icon">🏪</span>
-            Find local businesses
-          </button>
-          <button className="source-button">
-            <span className="icon">📄</span>
-            Import from CSV
-          </button>
-          <button className="source-button">
-            <span className="icon">➕</span>
-            More sources...
-          </button> */}
         </div>
-
-        {/* <div className="section">
-          <div className="section-title">Create a table</div>
-          <button className="source-button">
-            <span className="icon">📋</span>
-            Blank table
-          </button>
-          <button className="source-button">
-            <span className="icon">📑</span>
-            Use a table template
-          </button>
-        </div> */}
       </div>
 
       {/* Main Content Area */}
@@ -75,7 +44,7 @@ const ExcelUI = () => {
             <img 
               src={emptyStateImage} 
               alt="Empty state illustration" 
-              style={{ maxWidth: '300px', width: '100%', height: 'auto' }} 
+              style={{ maxWidth: '270px', width: '100%', height: 'auto' }} 
               className="empty-state-image" 
             />
           </div>
@@ -87,7 +56,7 @@ const ExcelUI = () => {
       {/* Bottom Sheet Navigation */}
       <div className="sheet-navigation">
         <div className="sheet-tabs">
-          <button 
+          <button
             className={`sheet-tab ${activeSheet === 'overview' ? 'active' : ''}`}
             onClick={() => setActiveSheet('overview')}
           >
@@ -105,13 +74,13 @@ const ExcelUI = () => {
         <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
           <div className="modal" onClick={e => e.stopPropagation()}>
             <div className="modal-header">
-              <h2>Add Sheet</h2>
+              <h2>💼 Find Companies</h2>
               <button className="close-button" onClick={() => setIsModalOpen(false)}>
                 ×
               </button>
             </div>
             <div className="modal-content">
-              {/* Modal content will be added later */}
+                <CompanySearch />
             </div>
           </div>
         </div>
