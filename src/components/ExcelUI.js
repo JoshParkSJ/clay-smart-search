@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../App.css';
+import './Excel.css';
 import clayLogo from '../assets/clay-logo.png';
 import emptyStateImage from '../assets/empty.png';
 import companiesImage from '../assets/companies.png';
