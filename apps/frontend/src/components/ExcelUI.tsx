@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import '../styles/Excel.module.css';
+import styles from '../styles/Excel.module.css';
 import clayLogo from '../assets/clay-logo.png';
 import emptyStateImage from '../assets/empty.png';
 import companiesImage from '../assets/companies.png';
@@ -13,26 +13,26 @@ const ExcelUI = () => {
   const [activeSheet, setActiveSheet] = useState('overview');
 
   return (
-    <div className="excel-container">
+    <div className={styles['excel-container']}>
       {/* Header */}
-      <div className="header">
-        <div className="header-left">
-          <div className="clay-logo">
+      <div className={styles.header}>
+        <div className={styles['header-left']}>
+          <div className={styles['clay-logo']}>
             <Image src={clayLogo} alt="Clay Logo" width={24} height={24} style={{ marginTop: '5px' }} />
           </div>
-          <div className="workbook-title">Workspace / My workbook</div>
+          <div className={styles['workbook-title']}>Workspace / My workbook</div>
         </div>
-        <div className="header-right">
-          <div className="user-profile">My Workspace</div>
+        <div className={styles['header-right']}>
+          <div className={styles['user-profile']}>My Workspace</div>
         </div>
       </div>
 
       {/* Left Sidebar */}
-      <div className="sidebar">
-        <div className="section">
-          <div className="section-title"><strong>Add a source</strong></div>
-          <button className="source-button" onClick={() => setIsModalOpen(true)}>
-            <span className="icon">
+      <div className={styles.sidebar}>
+        <div className={styles.section}>
+          <div className={styles['section-title']}><strong>Add a source</strong></div>
+          <button className={styles['source-button']} onClick={() => setIsModalOpen(true)}>
+            <span className={styles.icon}>
                 <Image src={companiesImage} alt="Find companies" width={24} height={24} />
             </span>
             <strong>Find companies</strong>
@@ -41,16 +41,16 @@ const ExcelUI = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="main-content">
-        <div className="empty-state">
-          <div className="empty-state-graphics">
+      <div className={styles['main-content']}>
+        <div className={styles['empty-state']}>
+          <div className={styles['empty-state-graphics']}>
             <Image 
               src={emptyStateImage} 
               alt="Empty state illustration" 
               width={270}
               height={270}
               style={{ width: '100%', height: 'auto' }}
-              className="empty-state-image" 
+              className={styles['empty-state-image']} 
             />
           </div>
           <h2>This workbook does not contain any data</h2>
@@ -59,16 +59,16 @@ const ExcelUI = () => {
       </div>
 
       {/* Bottom Sheet Navigation */}
-      <div className="sheet-navigation">
-        <div className="sheet-tabs">
+      <div className={styles['sheet-navigation']}>
+        <div className={styles['sheet-tabs']}>
           <button
-            className={`sheet-tab ${activeSheet === 'overview' ? 'active' : ''}`}
+            className={`${styles['sheet-tab']} ${activeSheet === 'overview' ? styles.active : ''}`}
             onClick={() => setActiveSheet('overview')}
           >
-            <span className="overview-icon">📊</span>
+            <span className={styles['overview-icon']}>📊</span>
             Overview
           </button>
-          <button className="add-sheet-button" onClick={() => setIsModalOpen(true)}>
+          <button className={styles['add-sheet-button']} onClick={() => setIsModalOpen(true)}>
             + Add
           </button>
         </div>
@@ -76,15 +76,15 @@ const ExcelUI = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="modal-overlay" onClick={() => setIsModalOpen(false)}>
-          <div className="modal" onClick={e => e.stopPropagation()}>
-            <div className="modal-header">
+        <div className={styles['modal-overlay']} onClick={() => setIsModalOpen(false)}>
+          <div className={styles.modal} onClick={e => e.stopPropagation()}>
+            <div className={styles['modal-header']}>
               <h2>💼 Find Companies</h2>
-              <button className="close-button" onClick={() => setIsModalOpen(false)}>
+              <button className={styles['close-button']} onClick={() => setIsModalOpen(false)}>
                 ×
               </button>
             </div>
-            <div className="modal-content">
+            <div className={styles['modal-content']}>
                 <CompanySearch />
             </div>
           </div>

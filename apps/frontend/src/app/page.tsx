@@ -1,10 +1,10 @@
 import ExcelUI from '../components/ExcelUI';
-import "../styles/index.module.css";
+import styles from "../styles/index.module.css";
 
 export default function Home() {
   return (
     <main>
-      <div className="App">
+      <div className={styles.App}>
         <ExcelUI />
       </div>
     </main>
