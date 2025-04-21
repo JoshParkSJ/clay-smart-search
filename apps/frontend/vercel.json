@@ -1,5 +1,5 @@
 {
-  "installCommand": "npm i -g pnpm@8.15.4 && pnpm install",
+  "installCommand": "npm i -g pnpm@8.15.4 && pnpm install --ignore-workspace",
   "buildCommand": "pnpm run build",
   "outputDirectory": ".next"
 } 
