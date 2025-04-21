@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import '../styles/CompanySearch.module.css';
+import styles from '../styles/CompanySearch.module.css';
 import {
   Accordion,
   AccordionSummary,
@@ -71,7 +71,7 @@ const CompanySearch = () => {
   const RightColumnContent = () => {
     if (isLoading) {
       return (
-        <div className="loading-container" style={{ textAlign: 'center', padding: '2rem' }}>
+        <div className={styles['loading-container']} style={{ textAlign: 'center', padding: '2rem' }}>
           <CircularProgress />
           <Typography variant="h6" sx={{ mt: 2 }}>
             Generating your preview. This may take a few moments...
@@ -122,7 +122,7 @@ const CompanySearch = () => {
     }
 
     return (
-      <div className="instructions-panel">
+      <div className={styles['instructions-panel']}>
         <h2>Create a list of companies</h2>
         <ol>
           <li>Construct your search! Start with company size or location</li>
@@ -134,16 +134,16 @@ const CompanySearch = () => {
   };
 
   return (
-    <div className="company-search-container">
-      <div className="search-filters">
+    <div className={styles['company-search-container']}>
+      <div className={styles['search-filters']}>
         <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="company-content"
             id="company-header"
           >
-            <div className="accordion-header">
-              <span className="filter-icon">🏢</span>
+            <div className={styles['accordion-header']}>
+              <span className={styles['filter-icon']}>🏢</span>
               <Typography>Company</Typography>
             </div>
           </AccordionSummary>
@@ -294,8 +294,8 @@ const CompanySearch = () => {
             aria-controls="location-content"
             id="location-header"
           >
-            <div className="accordion-header">
-              <span className="filter-icon">📍</span>
+            <div className={styles['accordion-header']}>
+              <span className={styles['filter-icon']}>📍</span>
               <Typography>Location</Typography>
             </div>
           </AccordionSummary>
@@ -376,8 +376,8 @@ const CompanySearch = () => {
             aria-controls="limit-results-content"
             id="limit-results-header"
           >
-            <div className="accordion-header">
-              <span className="filter-icon">📊</span>
+            <div className={styles['accordion-header']}>
+              <span className={styles['filter-icon']}>📊</span>
               <Typography>Smart Search</Typography>
             </div>
           </AccordionSummary>
@@ -396,12 +396,12 @@ const CompanySearch = () => {
           </AccordionDetails>
         </Accordion>
 
-        <button className="preview-button" onClick={handlePreviewCompanies}>
+        <button className={styles['preview-button']} onClick={handlePreviewCompanies}>
           Preview companies
         </button>
       </div>
 
-      <div className="right-column">
+      <div className={styles['right-column']}>
         <RightColumnContent />
       </div>
     </div>
