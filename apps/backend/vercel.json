@@ -1,4 +1,0 @@
-{
-  "buildCommand": "cd ../.. && pnpm run shared:build && cd apps/backend && pnpm run build",
-  "outputDirectory": "dist"
-}
