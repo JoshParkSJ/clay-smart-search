@@ -1,4 +1,4 @@
-.company-search-container {
+.companySearchContainer {
   display: flex;
   gap: 20px;
   max-width: 1200px;
@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 
-.search-filters {
+.searchFilters {
   flex: 0.4;
   display: flex;
   flex-direction: column;
@@ -16,11 +16,11 @@
   border-radius: 8px;
 }
 
-.filter-group {
+.filterGroup {
   width: 100%;
 }
 
-.filter-button {
+.filterButton {
   width: 100%;
   padding: 12px 16px;
   background-color: #fff;
@@ -36,29 +36,29 @@
   transition: all 0.2s ease;
 }
 
-.filter-button:hover {
+.filterButton:hover {
   background-color: #f8f9fa;
   border-color: #d0d0d0;
 }
 
-.accordion-header {
+.accordionHeader {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.filter-icon {
+.filterIcon {
   font-size: 16px;
 }
 
-.chevron-down {
+.chevronDown {
   margin-left: auto;
   font-size: 12px;
   color: #666;
 }
 
-.tag-new,
-.tag-upgrade {
+.tagNew,
+.tagUpgrade {
   padding: 2px 8px;
   border-radius: 12px;
   font-size: 12px;
@@ -67,17 +67,17 @@
   display: inline-block;
 }
 
-.tag-new {
+.tagNew {
   background-color: #e8f5e9;
   color: #2e7d32;
 }
 
-.tag-upgrade {
+.tagUpgrade {
   background-color: #fff3e0;
   color: #f57c00;
 }
 
-.preview-button {
+.previewButton {
   margin-top: 16px;
   padding: 12px 24px;
   background-color: #4285f4;
@@ -90,11 +90,11 @@
   transition: background-color 0.2s ease;
 }
 
-.preview-button:hover {
+.previewButton:hover {
   background-color: #3367d6;
 }
 
-.right-column {
+.rightColumn {
   flex: 0.6;
   min-width: 300px;
   background-color: white;
@@ -107,7 +107,7 @@
   height: fit-content;
 }
 
-.instructions-panel {
+.instructionsPanel {
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
@@ -116,25 +116,30 @@
   border-radius: 8px;
 }
 
-.instructions-panel h2 {
+.instructionsPanel h2 {
   color: #333;
   font-size: 18px;
   margin-bottom: 16px;
   font-weight: 500;
 }
 
-.instructions-panel ol {
+.instructionsPanel ol {
   padding-left: 20px;
   margin: 0;
 }
 
-.instructions-panel li {
+.instructionsPanel li {
   color: #666;
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 12px;
 }
 
-.instructions-panel li:last-child {
+.instructionsPanel li:last-child {
   margin-bottom: 0;
+}
+
+.loadingContainer {
+  text-align: center;
+  padding: 2rem;
 } 
