@@ -1,12 +1,173 @@
 [
-    {
-        "name": "Example Corp",
-        "description": "A technology company focused on AI solutions",
-        "primaryIndustry": "Software Development",
-        "size": "51-200",
-        "type": "Privately Held",
-        "location": "San Francisco, CA",
-        "country": "United States",
-        "url": "https://linkedin.com/company/example-corp"
-    }
+  {
+    "Name": "Ambience Healthcare",
+    "Description": "Ambience Healthcare\u2019s AI technology for scribing, coding, and patient summaries has been deployed at health systems such as Cleveland Clinic, UCSF, St. Luke\u2019s Health System, John Muir Health, and Memorial Hermann Health System. Ambience is the only AI scribing and coding solution designed to support 100+ specialties and subspecialties, and is directly integrated with Epic, Cerner, athenahealth, and other leading EHRs. \n\nBy partnering with Ambience, healthcare systems reduce documentation time, improve coding integrity, and unlock revenue. ",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "ambiencehealthcare.com"
+  },
+  {
+    "Name": "Nabla",
+    "Description": "Nabla is the leading ambient AI assistant, reducing practitioner stress and improving patient care. \n\nNabla summarizes encounters in real-time to generate comprehensive, structured clinical notes, which seamlessly integrate into the EHR, saving physicians hours on clinical documentation and bringing back the joy of clinical practice. \n\nDeveloped by top AI researchers in collaboration with a broad community of clinician innovators, Nabla supports 55+ specialties, 35 languages, and offers extensive customization options.\n\nNabla has firmly established itself in the healthcare industry, with over 50,000 clinicians and 100 organizations trusting its AI to assist their care teams. Beyond transforming clinical documentation, Nabla is advancing toward delivering the most intuitive and reliable ambient AI to support the entire clinical workflow.\n\nIn 2024, KLAS recognized Nabla for its commitment to providing a highly customizable, intuitive, and accurate ambient AI assistant that consistently exceeds user expectations.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "New York, NY",
+    "Country": "United States",
+    "URL": "nabla.com"
+  },
+  {
+    "Name": "Nuance Healthcare",
+    "Description": "Transform the patient\u2011clinician experience. Automatically create clinical documentation from patient visits with delivery in seconds with DAX Copilot\u2014your AI assistant for automated clinical documentation. Nuance innovations continuously evolve to meet the changing needs of providers and patients.\n\nNuance Communications is a technology pioneer with market leadership in conversational, ambient, and generative AI. A full-service partner trusted by 77 percent of U.S. hospitals and more than 75 percent of the Fortune 100 companies worldwide, Nuance creates intuitive solutions that amplify people's ability to help others. Nuance is a Microsoft company.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "501-1,000 employees",
+    "Location": "Burlington, MA",
+    "Country": "United States",
+    "URL": "nuance.com"
+  },
+  {
+    "Name": "Augmedix",
+    "Description": "Augmedix, a Commure company, empowers clinicians to connect with patients by liberating them from administrative burden through the power of ambient AI, data, and trust.\nThe platform transforms natural conversations into organized medical notes, structured data, and point-of-care notifications that enhance efficiency and clinical decision support.\nIncorporating data from millions of interactions across all care settings, Augmedix collaborates with hospitals and health systems to improve clinical, operational, and financial outcomes.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "501-1,000 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "augmedix.com"
+  },
+  {
+    "Name": "Abridge",
+    "Description": "Abridge was founded in 2018 with the mission of powering deeper understanding in healthcare. Our Best in KLAS AI-powered platform was purpose-built for medical conversations, improving clinical documentation efficiencies while enabling clinicians to focus on what matters most\u2014their patients.\n\nOur enterprise-grade technology transforms patient-clinician conversations into structured clinical notes in real-time, with deep EMR integrations. Powered by Linked Evidence and our purpose-built, auditable AI, we are the only company that maps AI-generated summaries to ground truth, helping providers quickly trust and verify the output. As pioneers in generative AI for healthcare, we are setting the industry standards for the responsible deployment of AI across health systems.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "Pittsburgh, PA",
+    "Country": "United States",
+    "URL": "abridge.com"
+  },
+  {
+    "Name": "DeepScribe",
+    "Description": "DeepScribe\u2019s AI scribe automates medical documentation for doctors. Powered by the largest clinical dataset in healthcare, DeepScribe ambiently captures patient visits as they happen and then writes complete, billable documentation directly within a clinician\u2019s electronic health record system. From small private practices to large healthcare organizations, DeepScribe is helping clinicians of all kinds reduce burnout, improve patient care, and increase revenue.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "deepscribe.ai"
+  },
+  {
+    "Name": "Heidi Health",
+    "Description": "Heidi Health is the team behind the world\u2019s most loved AI scribe used daily by tens of thousands of clinicians in over 50 countries scribing millions of consults every month. Where other scribes end at transcription, Heidi is just getting started. Heidi\u2019s real power is its ability to personalize notes with customized templates, create any healthcare document with a simple prompt, enable seamless team collaboration through shared sessions for multi-disciplinary care and more. From solo practitioners to large hospital networks, primary care to neurology to OBGYN, Heidi adapts to unique workflows across all specialties. Heidi is safe for every clinician to use with HIPAA and NHS compliance fortified with SOC2 and ISO 27001 security. Join the revolution at www.heidihealth.com \u2013 scribing is free, and it\u2019s just the beginning.",
+    "Primary Industry": "Software Development",
+    "Size": "51-200 employees",
+    "Location": "Melbourne, Victoria",
+    "Country": "Australia",
+    "URL": "heidihealth.com"
+  },
+  {
+    "Name": "Suki",
+    "Description": "Suki is a leading technology company that provides AI-powered voice solutions for healthcare. Its mission is to reimagine the healthcare tech stack, making it invisible and assistive to lift the administrative burden from physicians.  \n\nIts flagship product is Suki Assistant, an AI assistant that helps clinicians complete documentation and other administrative tasks 72% faster on average.  \n\nSuki also offers its proprietary AI platform, Suki Platform, to partners who want to create a best-in-class AI experiences for their solutions. From ambient documentation to voice commands to filling forms by voice, healthcare technology companies can seamlessly add AI features to their solutions with Suki Platform.\n\nSuki is backed by premier investors such as Venrock, First Round, March Capital, Flare Capital Partners, and Breyer Capital.",
+    "Primary Industry": "Software Development",
+    "Size": "51-200 employees",
+    "Location": "Redwood City, CA",
+    "Country": "United States",
+    "URL": "suki.ai"
+  },
+  {
+    "Name": "Freed",
+    "Description": "Meet Freed: The AI assistant loved by 17,000+ happy clinicians.\n\nFreed listens, transcribes, and creates comprehensive SOAP notes faster than you can say \"documentation backlog.\"\n\nThe reviews are in:\n\n\"The best thing to happen to clinicians!\" \u2013Dr. Sanjay Bharti\n\n\u201cI finally have control of my charts!\u201d \u2013Dr. Maryam Zarei\n\n\u201cIt\u2019s not just a time-saver, it\u2019s a life-saver.\u201d \u2013Dr. Bryan Walker",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "getfreed.ai"
+  },
+  {
+    "Name": "Fathom",
+    "Description": "Fathom is on a mission to structure clinical data to bring efficiency and efficacy to healthcare systems around the world. We are the leader in autonomous medical coding, applying cutting-edge deep learning and NLP to code patient encounters with the highest automation rates and the broadest specialty coverage. Our AI technology delivers reduced costs, increased accuracy, and rapid turnaround times. We are backed by world-class investors including Lightspeed, Alkeon Capital, Google Ventures, 8VC, and Stanford as well as leading health systems and healthcare executives such as Cedars-Sinai and Jonathan Bush.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "fathomhealth.com"
+  },
+  {
+    "Name": "Nym",
+    "Description": "Nym transforms revenue cycle management by fully automating the medical coding process. Our autonomous medical coding engine deciphers clinical language in patient charts and accurately assigns medical charge codes in seconds and with zero human intervention. By automating medical coding, Nym empowers health systems, hospitals, and physician groups to improve operational efficiency, optimize financial performance, and reduce administrative burdens, ultimately enabling providers to focus more time on patient care.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "New York, NY",
+    "Country": "United States",
+    "URL": "nym.health"
+  },
+  {
+    "Name": "Arintra",
+    "Description": "US hospitals and clinics are losing $125B every year due to delayed and inaccurate medical coding. Arintra is solving this problem by automating medical coding using AI and clinical NLP. Arintra converts a patient chart instantly into insurance claims with 96% accurate medical codes and zero human intervention.\n\nArintra solution is specifically tailored to cater to the varying requirements of ambulatory and outpatient specialties, emergency department services, and inpatient settings, ensuring comprehensive coverage across all healthcare domains.\n\nArintra\u2019s software leverages proprietary artificial intelligence and natural language processing algorithms to process patient charts directly from the EHR to create a direct-to-billing claim. Arintra autonomously goes through every stage of the claim submission process and ensures a clean claim for optimal reimbursements without any human intervention. Arintra is integrated with all the top EHRs to ensure effortless implementation without any change in the workflow.\n\nArintra\u2019s medical coding software offers two powerful modes for medical coding: autonomous coding mode and assisted coding mode. In autonomous coding mode, direct-to-billing claims are generated autonomously with high accuracy, streamlining the billing process for healthcare provider organizations. Whereas, assisted coding mode allows medical coders to meticulously review and optimize charges before submission, leading to increased efficiency and precision in the coding process. With Arintra, healthcare provider organizations can rely on precise direct-to-billing claims that include essential codes like E/M levels, CPT, ICD-10, HCC, HCPCS with appropriate modifiers and units. \n\nArintra\u2019s coding solution provides extensive coverage and flexibility, catering to various coding domains such as professional coding, professional-fee coding, facility coding, and inpatient coding.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "11-50 employees",
+    "Location": "Austin, TX",
+    "Country": "United States",
+    "URL": "arintra.com"
+  },
+  {
+    "Name": "CodaMetrix",
+    "Description": "CodaMetrix's cutting-edge, multi-specialty autonomous medical coding platform leverages AI to continuously learn from and act upon the clinical evidence in the EHR. We autonomously translate clinical notes into billing codes that satisfy coding requirements, ensuring claims consistently represent the unique and complete episode of care, reducing human coding workload, while improving the efficiency and optimizing the quality of medical coding.",
+    "Primary Industry": "Technology, Information and Internet",
+    "Size": "51-200 employees",
+    "Location": "Boston, MA",
+    "Country": "United States",
+    "URL": "codametrix.com"
+  },
+  {
+    "Name": "Milagro",
+    "Description": "Milagro offers autonomous medical coding solutions designed to streamline and optimize the coding process. \n\nOur AI-driven platform combines precise automation with human oversight to deliver a transparent, scalable, and compliant solution.\n\nWe help organizations reduce errors, improve accuracy, and adapt quickly across multiple specialties. With rapid integration, minimal manual processes, and flexibility for human review, Milagro enables organizations to address staffing shortages and enhance their revenue cycle efficiency.\n\nFocused on accuracy, scalability, and efficiency, we help our clients improve their coding operations and achieve better results.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "Austin, TX",
+    "Country": "United States",
+    "URL": "milagroai.com"
+  },
+  {
+    "Name": "RapidClaims",
+    "Description": "RapidClaims is redesigning the healthcare billing stack starting with autonomous medical coding and workflow solutions. \n\nWe are using cutting-edge AI and LLMs to ensure accurate autonomous medical coding and compliance. Security, Accuracy, Speed, and Scale are the pillars of our RapidCode AI module. \n\nThe solution takes into account not only the latest guidelines and payor rule sets but also generates audit-ready and compliant traceable documentation for the coding team. ",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "51-200 employees",
+    "Location": "New York, NY",
+    "Country": "United States",
+    "URL": "rapidclaims.ai"
+  },
+  {
+    "Name": "Synaptec Health",
+    "Description": "Synaptec Health\u2019s mission is to accelerate the world\u2019s transition to sustainable healthcare. \n\nIn pursuit of this mission, we make the world\u2019s only fully automated medical billing and coding technology using the latest in machine learning and natural language processing to code medical charts at scale while exceeding the accuracy and consistency of manual processes.\n\nWe are backed by lead Silicon Valley technology investors, including Fusion Fund and Foothill Ventures, founded in San Francisco, California, and have built a diverse and distributed team hailing from all over the globe. \n\nSynaptec Health is looking for world-class talent ready to challenge the hardest problems in data science and machine learning to improve healthcare for both patients and doctors\u2013if you've previously done exceptional work, join us to rethink the future of healthcare.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "11-50 employees",
+    "Location": "San Francisco, CA",
+    "Country": "United States",
+    "URL": "synaptechealth.com"
+  },
+  {
+    "Name": "Maverick Medical AI",
+    "Description": "Maverick Medical AI revolutionizes the medical coding industry with its cutting-edge, autonomous platform. The first autonomous coding solution to break the 85% Direct to Bill barrier while utilizing the power of deep learning AI and the largest database of any solution on the market, it expertly navigates across diverse medical domains with ease. Its proprietary deep learning design models and synthetic data generation capabilities set it apart from the competition, making it the go-to solution for any medical coding needs. \n\nThe Maverick platform mCoder offers a major improvement over standard rule-based and pattern recognition solutions currently available on the market with key advantages including:\n\n\u2022\tThe mCoder codes in a real-time fashion and streams the result to the \n        billing system in seconds.\n\u2022\tAutomated personalization, which includes the jargon adoption and the \n        unique coding rules and conditions per customer.\n\u2022\tReal-time notification with the physicians indicating clinical data \n        improvement.\n\nMaverick Medical AI\u2019s deep learning technology will revolutionize the medical coding process, becoming your partner in enhancing your billing efficiency to help you achieve an unparalleled 85% Direct to Billing Rate.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "11-50 employees",
+    "Location": "Tel Aviv, Israel",
+    "Country": "Israel",
+    "URL": "maverick-ai.com"
+  },
+  {
+    "Name": "Phare Health",
+    "Description": "We're on a mission to make healthcare claims fairer and more transparent by tackling the hardest technical challenges in RCM. Our medical coding engine is best-in-class for complex inpatient coding and helps to maximize coding quality and fair reimbursement.\n\nPhare Health is backed by some of the best healthcare investors in the world, with a founding team from DeepMind, Stanford and NYU.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "11-50 employees",
+    "Location": "New York, NY",
+    "Country": "United States",
+    "URL": "phare.health"
+  },
+  {
+    "Name": "Semantic Health",
+    "Description": "Semantic Health helps hospitals and health systems unlock the true value of their unstructured data. Its intelligent coding and auditing platform uses artificial intelligence and deep learning to streamline coding and auditing, optimize reimbursements, improve documentation quality, and enable real-time access to coded data.",
+    "Primary Industry": "Hospitals and Health Care",
+    "Size": "11-50 employees",
+    "Location": "Toronto, ON",
+    "Country": "Canada",
+    "URL": "semantichealth.ai"
+  }
 ]
