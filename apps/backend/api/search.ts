@@ -1,24 +1,13 @@
-import { Request, Response } from 'express';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Company } from '@clay-smart-search/shared';
 
-const express = require('express');
-const cors = require('cors');
-const companies: Company[] = require('./data/companies.json');
+const companies: Company[] = require('../data/companies.json');
 
-require('dotenv').config();
+export default function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
 
-const app = express();
-const port = process.env.PORT || 3001;
-
-app.use(cors());
-app.use(express.json());
-
-// Health check endpoint
-app.get('/api/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok' });
-});
-
-app.post('/api/search', (req: Request, res: Response) => {
   const { filters } = req.body;
   let result = [...companies];
 
@@ -96,14 +85,4 @@ app.post('/api/search', (req: Request, res: Response) => {
   }
 
   res.json(result);
-});
-
-// Only start the server if we're not in a Vercel environment
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(port, () => {
-    console.log(`Backend server running on port ${port}`);
-  });
 }
-
-// Export the Express app for Vercel
-export default app;
