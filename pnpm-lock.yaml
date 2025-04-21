@@ -7,6 +7,13 @@ settings:
 importers:
 
   .:
+    dependencies:
+      next:
+        specifier: 14.1.0
+        version: 14.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      nextjs:
+        specifier: ^0.0.3
+        version: 0.0.3
     devDependencies:
       npm-run-all:
         specifier: ^4.1.5
