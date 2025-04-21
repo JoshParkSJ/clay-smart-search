@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clay-smart-search/shared": "file:../../packages/shared",
+    "@clay-smart-search/shared": "workspace:*",
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.0",
