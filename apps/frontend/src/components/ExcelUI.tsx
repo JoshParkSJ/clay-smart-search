@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
-import './Excel.css';
+import Image from 'next/image';
+import '../styles/Excel.module.css';
 import clayLogo from '../assets/clay-logo.png';
 import emptyStateImage from '../assets/empty.png';
 import companiesImage from '../assets/companies.png';
@@ -15,7 +18,7 @@ const ExcelUI = () => {
       <div className="header">
         <div className="header-left">
           <div className="clay-logo">
-            <img src={clayLogo} alt="Clay Logo" style={{ height: '24px', width: 'auto', marginTop: '5px' }} />
+            <Image src={clayLogo} alt="Clay Logo" width={24} height={24} style={{ marginTop: '5px' }} />
           </div>
           <div className="workbook-title">Workspace / My workbook</div>
         </div>
@@ -30,7 +33,7 @@ const ExcelUI = () => {
           <div className="section-title"><strong>Add a source</strong></div>
           <button className="source-button" onClick={() => setIsModalOpen(true)}>
             <span className="icon">
-                <img src={companiesImage} alt="Find companies" style={{ height: '24px', width: 'auto' }} />
+                <Image src={companiesImage} alt="Find companies" width={24} height={24} />
             </span>
             <strong>Find companies</strong>
           </button>
@@ -41,10 +44,12 @@ const ExcelUI = () => {
       <div className="main-content">
         <div className="empty-state">
           <div className="empty-state-graphics">
-            <img 
+            <Image 
               src={emptyStateImage} 
               alt="Empty state illustration" 
-              style={{ maxWidth: '270px', width: '100%', height: 'auto' }} 
+              width={270}
+              height={270}
+              style={{ width: '100%', height: 'auto' }}
               className="empty-state-image" 
             />
           </div>

@@ -10,8 +10,9 @@
     "frontend:build": "pnpm --filter @clay-smart-search/frontend build",
     "backend": "pnpm --filter @clay-smart-search/backend dev",
     "backend:build": "pnpm --filter @clay-smart-search/backend build",
+    "shared:build": "pnpm --filter @clay-smart-search/shared build",
     "dev": "pnpm run --parallel frontend backend",
-    "build": "pnpm run --parallel frontend:build backend:build"
+    "build": "pnpm run shared:build && pnpm run --parallel frontend:build backend:build"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5"

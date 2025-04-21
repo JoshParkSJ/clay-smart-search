@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import './CompanySearch.css';
+import '../styles/CompanySearch.module.css';
 import {
   Accordion,
   AccordionSummary,
