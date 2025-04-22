@@ -41,12 +41,12 @@ const CompanySearch = () => {
   });
 
   // Sample data for dropdowns - you can replace these with your actual data
-  const industryOptions = ['Software Development', 'Healthcare', 'Finance', 'Retail'];
-  const companySizeOptions = ['1-10', '11-50', '51-200', '201-500', '501+'];
+  const industryOptions = ['Hospitals and Health Care', 'Software Development', 'Technology, Information and Internet', 'Healthcare', 'Finance', 'Retail'];
+  const companySizeOptions = ['11-50 employees', '51-200 employees', '501-1,000 employees', '1-10', '201-500', '501+'];
   const companyTypeOptions = ['Privately Held', 'Public', 'Non-profit', 'Government'];
-  const companyCountryOptions = ["United States"];
-  const companyCityOptions = ["New York", "San Francisco", "Seattle"];
-  const companyCityExcludeOptions = ["New York", "San Francisco", "Seattle"];
+  const companyCountryOptions = ["United States", "Australia", "Canada", "Israel"];
+  const companyCityOptions = ["New York", "San Francisco", "Seattle", "Burlington", "Pittsburgh", "Redwood City", "Austin", "Boston", "Tel Aviv", "Toronto", "Melbourne"];
+  const companyCityExcludeOptions = ["New York", "San Francisco", "Seattle", "Burlington", "Pittsburgh", "Redwood City", "Austin", "Boston", "Tel Aviv", "Toronto", "Melbourne"];
 
   const handleFilterChange = (field: keyof CompanyFilters, value: string | string[]) => {
     setCompanyFilters(prev => ({
@@ -88,7 +88,7 @@ const CompanySearch = () => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell sx={{ width: '30%', minWidth: '250px' }}>Description</TableCell>
+                <TableCell sx={{ width: '50%', minWidth: '500px' }}>Description</TableCell>
                 <TableCell>Primary Industry</TableCell>
                 <TableCell>Size</TableCell>
                 <TableCell>Type</TableCell>
@@ -102,7 +102,7 @@ const CompanySearch = () => {
                 <TableRow key={index}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>{row.name}</TableCell>
-                  <TableCell sx={{ width: '30%', minWidth: '250px' }}>{row.description}</TableCell>
+                  <TableCell sx={{ width: '50%', minWidth: '500px' }}>{row.description}</TableCell>
                   <TableCell>{row.primaryIndustry}</TableCell>
                   <TableCell>{row.size}</TableCell>
                   <TableCell>{row.type}</TableCell>
