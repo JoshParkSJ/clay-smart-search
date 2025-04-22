@@ -88,7 +88,7 @@ const CompanySearch = () => {
               <TableRow>
                 <TableCell></TableCell>
                 <TableCell>Name</TableCell>
-                <TableCell>Description</TableCell>
+                <TableCell sx={{ width: '30%', minWidth: '250px' }}>Description</TableCell>
                 <TableCell>Primary Industry</TableCell>
                 <TableCell>Size</TableCell>
                 <TableCell>Type</TableCell>
@@ -102,7 +102,7 @@ const CompanySearch = () => {
                 <TableRow key={index}>
                   <TableCell>{index + 1}</TableCell>
                   <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.description}</TableCell>
+                  <TableCell sx={{ width: '30%', minWidth: '250px' }}>{row.description}</TableCell>
                   <TableCell>{row.primaryIndustry}</TableCell>
                   <TableCell>{row.size}</TableCell>
                   <TableCell>{row.type}</TableCell>
