@@ -26,6 +26,7 @@ import { searchCompanies } from "../utils/search";
 
 const CompanySearch = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [fre, setFre] = useState(true);
   const [previewResults, setPreviewResults] = useState<Company[]>([]);
   const [companyFilters, setCompanyFilters] = useState<CompanyFilters>({
     industries: [],
@@ -58,13 +59,14 @@ const CompanySearch = () => {
   const handlePreviewCompanies = async () => {
     setIsLoading(true);
     try {
-      const result = await searchCompanies(companyFilters)
+      const result = await searchCompanies(companyFilters);
 
       setPreviewResults(result);
     } catch (error) {
       console.error('Error fetching preview:', error);
     } finally {
       setIsLoading(false);
+      setFre(false);
     }
   };
 
@@ -80,57 +82,67 @@ const CompanySearch = () => {
       );
     }
 
-    if (previewResults.length > 0) {
-      return (
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="preview results">
-            <TableHead>
-              <TableRow>
-                <TableCell></TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell sx={{ width: '50%', minWidth: '500px' }}>Description</TableCell>
-                <TableCell>Primary Industry</TableCell>
-                <TableCell>Size</TableCell>
-                <TableCell>Type</TableCell>
-                <TableCell>Location</TableCell>
-                <TableCell>Country</TableCell>
-                <TableCell>LinkedIn URL</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {previewResults.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell sx={{ width: '50%', minWidth: '500px' }}>{row.description}</TableCell>
-                  <TableCell>{row.primaryIndustry}</TableCell>
-                  <TableCell>{row.size}</TableCell>
-                  <TableCell>{row.type}</TableCell>
-                  <TableCell>{row.location}</TableCell>
-                  <TableCell>{row.country}</TableCell>
-                  <TableCell>
-                    <a href={row.url} target="_blank" rel="noopener noreferrer">
-                      {row.url}
-                    </a>
-                  </TableCell>
+    if (!fre) {
+
+      if (previewResults.length > 0) {
+
+        return (
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} aria-label="preview results">
+              <TableHead>
+                <TableRow>
+                  <TableCell></TableCell>
+                  <TableCell>Name</TableCell>
+                  <TableCell sx={{ width: '50%', minWidth: '500px' }}>Description</TableCell>
+                  <TableCell>Primary Industry</TableCell>
+                  <TableCell>Size</TableCell>
+                  <TableCell>Type</TableCell>
+                  <TableCell>Location</TableCell>
+                  <TableCell>Country</TableCell>
+                  <TableCell>LinkedIn URL</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {previewResults.map((row, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{row.name}</TableCell>
+                    <TableCell sx={{ width: '50%', minWidth: '500px' }}>{row.description}</TableCell>
+                    <TableCell>{row.primaryIndustry}</TableCell>
+                    <TableCell>{row.size}</TableCell>
+                    <TableCell>{row.type}</TableCell>
+                    <TableCell>{row.location}</TableCell>
+                    <TableCell>{row.country}</TableCell>
+                    <TableCell>
+                      <a href={row.url} target="_blank" rel="noopener noreferrer">
+                        {row.url}
+                      </a>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        );
+      } else {
+        return (
+          <div className={styles.instructionsPanel} style={{ display: 'flex', justifyContent: 'center' }}>
+            <h2>No companies found</h2>
+          </div>
+        )
+      }
+    } else {
+      return (
+        <div className={styles.instructionsPanel}>
+          <h2>Create a list of companies</h2>
+          <ol>
+            <li>Construct your search! Start with company size or location</li>
+            <li>Preview company profiles that match your search</li>
+            <li>Once satisfied, import full list into a Clay table!</li>
+          </ol>
+        </div>
       );
     }
-
-    return (
-      <div className={styles.instructionsPanel}>
-        <h2>Create a list of companies</h2>
-        <ol>
-          <li>Construct your search! Start with company size or location</li>
-          <li>Preview company profiles that match your search</li>
-          <li>Once satisfied, import full list into a Clay table!</li>
-        </ol>
-      </div>
-    );
   };
 
   return (
