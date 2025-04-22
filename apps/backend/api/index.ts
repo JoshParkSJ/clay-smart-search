@@ -6,4 +6,4 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
-} 
+}
