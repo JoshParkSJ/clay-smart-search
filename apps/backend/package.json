@@ -7,10 +7,7 @@
     "start": "vercel dev",
     "deploy": "vercel deploy --prod",
     "build": "cd ../../shared && pnpm build && cd ../apps/backend && tsc",
-    "vercel-build": "echo 'Using Vercel serverless functions'",
-    "lint": "eslint . --ext .ts",
-    "test": "jest",
-    "backend": "ts-node api/index.ts"
+    "backend": "vercel dev"
   },
   "dependencies": {
     "@clay-smart-search/shared": "workspace:*",
