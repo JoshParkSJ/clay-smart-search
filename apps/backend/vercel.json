@@ -12,11 +12,11 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/dist/api/$1.js"
+      "dest": "/api/$1"
     },
     {
       "src": "/api",
-      "dest": "/dist/api/index.js"
+      "dest": "/api/index"
     }
   ],
   "devCommand": null
