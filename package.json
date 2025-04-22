@@ -8,7 +8,7 @@
   "scripts": {
     "frontend": "pnpm --filter @clay-smart-search/frontend start",
     "frontend:build": "pnpm --filter @clay-smart-search/frontend build",
-    "backend": "pnpm --filter @clay-smart-search/backend dev",
+    "backend": "pnpm --filter @clay-smart-search/backend start",
     "backend:build": "pnpm --filter @clay-smart-search/backend build",
     "shared:build": "pnpm --filter @clay-smart-search/shared build",
     "dev": "pnpm run --parallel frontend backend",
