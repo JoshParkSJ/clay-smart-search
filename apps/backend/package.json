@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vercel dev",
-    "start": "vercel dev --listen 3001",
+    "dev": "vercel dev --listen 3001",
+    "start": "vercel dev",
     "deploy": "vercel deploy --prod",
     "build": "cd ../../shared && pnpm build && cd ../apps/backend && tsc",
     "lint": "eslint . --ext .ts",

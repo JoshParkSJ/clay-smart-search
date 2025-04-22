@@ -3,17 +3,20 @@
   "builds": [
     {
       "src": "api/**/*.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "outputDirectory": "dist"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1.ts"
+      "dest": "/dist/api/$1.js"
     },
     {
       "src": "/api",
-      "dest": "/api/index.ts"
+      "dest": "/dist/api/index.js"
     }
   ],
   "devCommand": null
