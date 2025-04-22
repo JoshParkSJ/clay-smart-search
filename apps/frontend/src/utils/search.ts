@@ -1,6 +1,7 @@
 import { Company, CompanyFilters } from '@clay-smart-search/shared';
 
-const API_URL = process.env.NEXT_PUBLIC_BACKEND ?? 'http://localhost:3001';
+const API_URL = "https://citadel-agent-128d0560d7b1.herokuapp.com"; 
+// const API_URL = 'http://localhost:3001';
 
 export async function searchCompanies(filters: CompanyFilters): Promise<Company[]> {
     try {
