@@ -32,7 +32,6 @@ const CompanySearch = () => {
     industries: [],
     excludedIndustries: [],
     companySizes: [],
-    companyTypes: [],
     includeKeywords: [],
     excludeKeywords: [],
     countries: [],
@@ -44,7 +43,6 @@ const CompanySearch = () => {
   // Sample data for dropdowns - you can replace these with your actual data
   const industryOptions = ['Hospitals and Health Care', 'Software Development', 'Technology, Information and Internet', 'Healthcare', 'Finance', 'Retail'];
   const companySizeOptions = ['11-50 employees', '51-200 employees', '501-1,000 employees', '1-10', '201-500', '501+'];
-  const companyTypeOptions = ['Privately Held', 'Public', 'Non-profit', 'Government'];
   const companyCountryOptions = ["United States", "Australia", "Canada", "Israel"];
   const companyCityOptions = ["New York", "San Francisco", "Seattle", "Burlington", "Pittsburgh", "Redwood City", "Austin", "Boston", "Tel Aviv", "Toronto", "Melbourne"];
   const companyCityExcludeOptions = ["New York", "San Francisco", "Seattle", "Burlington", "Pittsburgh", "Redwood City", "Austin", "Boston", "Tel Aviv", "Toronto", "Melbourne"];
@@ -216,28 +214,6 @@ const CompanySearch = () => {
                     <TextField
                       {...params}
                       placeholder="e.g. 11-50 employees"
-                      size="small"
-                    />
-                  )}
-                  renderTags={(value, getTagProps) =>
-                    value.map((option, index) => (
-                      <Chip label={option} {...getTagProps({ index })} />
-                    ))
-                  }
-                />
-              </div>
-
-              <div>
-                <Typography variant="body2" sx={{ mb: 0.5 }}>Select one or more company types</Typography>
-                <Autocomplete
-                  multiple
-                  options={companyTypeOptions}
-                  value={companyFilters.companyTypes}
-                  onChange={(_, newValue) => handleFilterChange('companyTypes', newValue)}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      placeholder="e.g. Privately Held"
                       size="small"
                     />
                   )}
