@@ -13,7 +13,6 @@ export interface CompanyFilters {
     industries: string[];
     excludedIndustries: string[];
     companySizes: string[];
-    companyTypes: string[];
     includeKeywords: string[];
     excludeKeywords: string[];
     countries: string[];
